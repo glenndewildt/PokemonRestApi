@@ -72,16 +72,16 @@ router.route('/pokemons')
 .get(function(req, res) {
     return https.get({
         host: 'pokeapi.co',
-        path: '/api/v2/pokemon/',
+        path: '/api/v2/pokemon/?limit='+req.query.limit+'&offset='+req.query.offset,
         method: 'GET'
     }, function(response) {
         // Continuously update stream with data
         var body = '';
         response.on('data', function (d) {
             body += d;
-            console.log(d);
         });
         response.on('end', function () {
+       console.log(req.query.limit);
 
             // Data reception is done, do whatever with it!
             var parsed = JSON.parse(body);
