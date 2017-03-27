@@ -128,7 +128,7 @@ router.route('/pokemons/:pokemon_id')
     .get(function(req, res) {
          https.get({
             host: 'pokeapi.co',
-            path: '/api/v2/pokemon/'+req.params.pokemon_id,
+            path: '/api/v2/pokemon/'+req.params.pokemon_id+'/',
             method: 'GET'
         }, function(response) {
             // Continuously update stream with data
