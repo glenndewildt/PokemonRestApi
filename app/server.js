@@ -25,6 +25,7 @@ var Pokemon     = require('./models/pokemon');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 var port = process.env.PORT || 8080;        // set our port
 
 // ROUTES FOR OUR API
@@ -35,11 +36,20 @@ var router = express.Router();              // get an instance of the express Ro
 router.use(function(req, res, next) {
     // do logging
     console.log('Something is happening.');
+
     next(); // make sure we go to the next routes and don't stop here
 });
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
+
+
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res) {
+router.get('/', function(req, res, next) {
     res.json({ message: 'hooray! welcome to our api!' });
 });
 
@@ -195,6 +205,7 @@ router.route('/pokemons/:pokemon_id')
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/api', router);
+
 
 // START THE SERVER
 // =============================================================================
