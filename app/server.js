@@ -26,7 +26,7 @@ var Pokemon     = require('./models/pokemon');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors())
+ app.use(cors())
 
 
 var port = process.env.PORT || 8080;        // set our port
@@ -54,15 +54,6 @@ router.use(function(req, res, next) {
 router.route('/pokemons')
 
 
-app.get('/pokemons', function(req, res, next) {
-    console.log("hoi");
-    next();
-});
-
-app.post('/', function(req, res, next) {
-    // Handle the post for this route
-})
-
     // create a bear (accessed at POST http://localhost:8080/api/bears)
     .post(function(req, res) {
 
@@ -85,7 +76,7 @@ app.post('/', function(req, res, next) {
 .get(function(req, res) {
     return https.get({
         host: 'pokeapi.co',
-        path: '/api/v2/pokemon/',
+        path: '/api/v2/pokemon/?limit='+req.query.limit+"&offset="+req.query.offset+'',
         method: 'GET'
     }, function(response) {
         // Continuously update stream with data
