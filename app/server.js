@@ -11,6 +11,8 @@ var https = require('https');
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
+var cors = require('cors')
+
 //mongoose setup
 var mongoose   = require('mongoose');
 var configDB = require('./config/database.js');
@@ -24,9 +26,11 @@ var Pokemon     = require('./models/pokemon');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors())
 
 
 var port = process.env.PORT || 8080;        // set our port
+
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -39,19 +43,8 @@ router.use(function(req, res, next) {
 
     next(); // make sure we go to the next routes and don't stop here
 });
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    next();
-});
 
 
-
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/', function(req, res, next) {
-    res.json({ message: 'hooray! welcome to our api!' });
-});
 
 // on routes that end in /bears
 // ----------------------------------------------------
@@ -59,6 +52,16 @@ router.get('/', function(req, res, next) {
 
 
 router.route('/pokemons')
+
+
+app.get('/pokemons', function(req, res, next) {
+    console.log("hoi");
+    next();
+});
+
+app.post('/', function(req, res, next) {
+    // Handle the post for this route
+})
 
     // create a bear (accessed at POST http://localhost:8080/api/bears)
     .post(function(req, res) {
@@ -82,7 +85,7 @@ router.route('/pokemons')
 .get(function(req, res) {
     return https.get({
         host: 'pokeapi.co',
-        path: '/api/v2/pokemon/?limit='+req.query.limit+'&offset='+req.query.offset,
+        path: '/api/v2/pokemon/',
         method: 'GET'
     }, function(response) {
         // Continuously update stream with data
