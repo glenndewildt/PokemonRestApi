@@ -89,7 +89,7 @@ router.route('/pokemons')
 
             // Data reception is done, do whatever with it!
             var parsed = JSON.parse(body);
-            res.json(body);
+            res.json(parsed);
         });
     });
 });
