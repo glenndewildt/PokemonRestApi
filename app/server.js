@@ -26,7 +26,7 @@ var Pokemon     = require('./models/pokemon');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
- app.use(cors())
+app.use(cors());
 
 
 var port = process.env.PORT || 8080;        // set our port
