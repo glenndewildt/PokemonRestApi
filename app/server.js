@@ -60,8 +60,8 @@ router.route('/pokemons')
         var pokemon = new Pokemon();      // create a new instance of the Bear model
         pokemon.name = req.body.name;  // set the bears name (comes from the request)
 
-        pokemon.longatude = 10;
-        pokemon.latetude = 12;
+        pokemon.longatude = 1.151515;
+        pokemon.latetude = 2.251514141241241241241;
 
         // save the bear and check for errors
         pokemon.save(function(err) {

@@ -9,12 +9,10 @@ var Schema       = mongoose.Schema;
 
 
 var LocationSchema   = new Schema({
-    longatude: int,
-    latetude: int
-
-
+    longitude: double,
+    latitude: double,
 });
 
 
 
-module.exports =  mongoose.model('Lacation', LocationSchema);
+module.exports =  mongoose.model('location', LocationSchema);

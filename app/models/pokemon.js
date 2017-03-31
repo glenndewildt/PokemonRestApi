@@ -11,10 +11,8 @@ var http = require('http');
 
 var PokemonSchema   = new Schema({
     name: String,
-    longatude: { type: Number, default: 0 },
-    latetude: { type: Number, default: 0 }
-
-
+    longitude: { type: Number, default: 0 },
+    latitude: { type: Number, default: 0 },
 });
 
 
