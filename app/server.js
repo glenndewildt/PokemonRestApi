@@ -82,7 +82,6 @@ router.route('/pokemons')
     .post(function(req, res) {
 
         var pokemon = new Pokemon();      // create a new instance of the Bear model
-        console.log(req.body);
         pokemon.name = req.headers.name;  // set the bears name (comes from the request)
 
         pokemon.longitude = req.headers.longitude;
