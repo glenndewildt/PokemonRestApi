@@ -1,9 +1,25 @@
 {
   "name": "pokemon-api",
+  "version" :"0.0.0",
   "main": "server.js",
   "dependencies": {
     "express": "^4.12.3",
     "mongoose": "^4.8.7",
-    "swagger-express-mw": "^0.1.0"
+    "ejs" : "~0.8.5",  
+    "swagger-express-mw": "^0.1.0",
+
+    "passport" : "~0.1.17",         
+    "passport-local" : "~0.1.6",    
+    "passport-facebook" : "~1.0.2", 
+    "passport-twitter" : "~1.0.2",  
+    "passport-google-oauth" : "~0.1.5",
+    "connect-flash" : "~0.1.1",     
+    "bcrypt-nodejs" : "latest",
+
+    "morgan": "~1.0.0",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.0",
+    "method-override": "~1.0.0",
+    "express-session": "~1.0.0"     
   }
 }
