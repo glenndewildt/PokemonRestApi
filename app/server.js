@@ -82,17 +82,19 @@ router.route('/pokemons')
     .post(function(req, res) {
 
         var pokemon = new Pokemon();      // create a new instance of the Bear model
-        pokemon.name = req.body.name;  // set the bears name (comes from the request)
+        console.log(req.body);
+        pokemon.name = req.headers.name;  // set the bears name (comes from the request)
 
-        pokemon.longatude = 1.151515;
-        pokemon.latetude = 2.251514141241241241241;
+        pokemon.longitude = req.headers.longitude;
+        pokemon.latitude = req.headers.latitude;
+
 
         // save the bear and check for errors
         pokemon.save(function(err) {
             if (err)
                 res.send(err);
 
-            res.json({ message: 'Pokemon created!' });
+            res.json({  message: 'Pokemon: '+req.headers.name+' created!'});
         });
 
     })
