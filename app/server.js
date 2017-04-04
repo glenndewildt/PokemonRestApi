@@ -94,7 +94,7 @@ router.route('/pokemons')
             if (err)
                 res.send(err);
 
-            res.json({  message: 'Pokemon: '+req.headers.name+' created!'});
+            res.json({  message: 'Pokemon: '+req.headers.name+' created! longitude: '+req.headers.longitude});
         });
 
     })
