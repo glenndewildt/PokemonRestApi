@@ -116,13 +116,27 @@ pokerouter.delete('/pokemonLocations/:id',(function(req, res){
         }else{
             res.json({message:'no pokemon with id: '+req.params.id})
         }
-            
-           
+                      
         })       
-        
-       
+               
 }))
+pokerouter.post('/pokemons/crudAdd',(function(req,res){
+    console.log('stap1');
+    var pokemon = new Pokemon();      // create a new instance of the Bear model
+        pokemon.name = req.body.name;  // set the bears name (comes from the request)
 
+        pokemon.longitude = req.body.longitude;
+        pokemon.latitude = req.body.latitude;
+
+
+        // save the bear and check for errors
+        pokemon.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({  message: 'Pokemon: '+req.body.name+' created! longitude: '+req.headers.longitude});
+        });
+}))
 
 
 

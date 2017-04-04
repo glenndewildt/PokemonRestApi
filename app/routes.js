@@ -1,6 +1,9 @@
 // app/routes.js
 module.exports = function(app, passport) {
 
+    var Pokemon  = require('./models/pokemon');
+    var pokemons = Pokemon.find
+
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -16,6 +19,9 @@ module.exports = function(app, passport) {
 
         // render the page and pass in any flash data if it exists
         res.render('login.ejs', { message: req.flash('loginMessage') }); 
+    });
+    app.get('/admin',isLoggedIn, function(req, res){
+        res.render('crud.ejs');
     });
 
     // process the login form
@@ -40,8 +46,10 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
+
         res.render('profile.ejs', {
-            user : req.user // get the user out of session and pass to template
+            user : req.user, // get the user out of session and pass to template
+            
         });
     });
 
