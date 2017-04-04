@@ -2,7 +2,13 @@
 module.exports = function(app, passport) {
 
     var Pokemon  = require('./models/pokemon');
-    var pokemons = Pokemon.find
+    var pokemonList = '';
+    Pokemon.find(function (err, pokemons){
+            if (err)
+                
+
+            pokemonList = pokemons;
+        })
 
     // =====================================
     // HOME PAGE (with login links) ========
@@ -21,7 +27,7 @@ module.exports = function(app, passport) {
         res.render('login.ejs', { message: req.flash('loginMessage') }); 
     });
     app.get('/admin',isLoggedIn, function(req, res){
-        res.render('crud.ejs');
+        res.render('crud.ejs', pokemonList);
     });
 
     // process the login form

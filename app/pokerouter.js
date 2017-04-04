@@ -134,8 +134,49 @@ pokerouter.post('/pokemons/crudAdd',(function(req,res){
             if (err)
                 res.send(err);
 
-            res.json({  message: 'Pokemon: '+req.body.name+' created! longitude: '+req.headers.longitude});
+            res.json({  message: 'Pokemon: '+req.body.name+' created! longitude: '+req.body.longitude});
         });
+}))
+pokerouter.post('/pokemons/crudUpdate',(function(req,res){
+     if(!req.body.name 
+            || !req.body.longitude 
+            || !req.body.latitude){
+            res.status(400);
+            res.json({message: 'bad request'});
+        }
+        else{
+            Pokemon.findById(req.body.id, function(err, pokemon) {
+        if (err)
+            res.send(err);
+
+            pokemon.name = req.body.name;
+            pokemon.longitude = req.body.longitude;
+            pokemon.latitude = req.body.latitude;
+
+            pokemon.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({  message: 'Pokemon: '+req.body.name+' updated! longitude: '+req.body.longitude});
+        });
+        })       
+        }
+}))
+pokerouter.post('/pokemons/crudDelete',(function(req,res){
+          Pokemon.findById(req.body.id, function(err, pokemon) {
+        if (err)
+            res.send(err);
+
+           if(pokemon){
+            pokemon.remove({
+            _id: req.params.id
+            })
+            res.json({message:'pokemon deleted'});
+        }else{
+            res.json({message:'no pokemon with id: '+req.body.id})
+        }
+                      
+        })   
 }))
 
 
