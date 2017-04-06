@@ -3,8 +3,8 @@ var expect = require('chai').expect;
 var should = require('chai').should();
 
 var app = require('express')();
-var pokerouter = require('../pokerouter.js');
-var Pokemon = require('../models/pokemon.js')
+var pokerouter = require('./pokerouter.js');
+var Pokemon = require('./models/pokemon.js')
 app.use('/', pokerouter);
 
 function makeRequest(route, statusCode, done){

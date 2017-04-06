@@ -179,7 +179,9 @@ pokerouter.post('/pokemons/crudDelete',(function(req,res){
         })   
 }))
 
-
+pokerouter.get('/pokemons/*',(function(req, res){
+        res.status(400).end('Invalid pokemon');
+}))
 
 
 
