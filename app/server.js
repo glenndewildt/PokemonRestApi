@@ -2,7 +2,7 @@
  * Created by Glenn on 21-3-2017.
  */
 // server.js
-
+var swaggerJSDoc = require('swagger-jsdoc');
 var https = require('https');
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
@@ -19,6 +19,27 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+// swagger definition
+var swaggerDefinition = {
+  info: {
+    title: 'Node Swagger API',
+    version: '1.0.0',
+    description: 'Demonstrating how to describe a RESTful API with Swagger',
+  },
+  host: 'localhost:8080',
+  basePath: '/',
+};
+
+// options for the swagger docs
+var options = {
+  // import swaggerDefinitions
+  swaggerDefinition: swaggerDefinition,
+  // path to the API docs
+  apis: ['./routes/*.js'],
+};
+
+// initialize swagger-jsdoc
+var swaggerSpec = swaggerJSDoc(options);
 
 //mongoose setup
 var mongoose   = require('mongoose');
@@ -26,6 +47,12 @@ var configDB = require('./config/database.js');
 var pokerouter = require('./pokerouter.js');
 
 mongoose.connect(configDB.url); // connect to our database
+
+// serve swagger
+app.get('/swagger.json', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
 
 require('./config/passport')(passport); // pass passport for configuration
 // onze folderstructuur is anders pas op

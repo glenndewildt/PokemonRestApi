@@ -7,6 +7,16 @@ var https = require('https');
 
 //model pokemon
 
+//!!!!!!!!!!!!!!!
+
+
+
+//TODO routes veranderen, api fixen
+
+
+
+//!!!!!!!!!!!!!!
+
 /**
  * @swagger
  * definition:
