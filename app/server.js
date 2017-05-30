@@ -12,6 +12,8 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var cors = require('cors');
+const exphbs = require('express-handlebars');
+
 
 var flash    = require('connect-flash');
 var passport = require('passport');
@@ -21,6 +23,17 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+const hbs = exphbs.create({
+    defaultLayout: 'main',
+    extname: '.hbs',
+    helpers: {
+        select: function(selected, options) {
+            return options.fn(this).replace(
+                new RegExp(' value=\"' + selected + '\"'),
+                '$& selected="selected"');
+        },
+    }
+});
 //mongoose setup
 var mongoose   = require('mongoose');
 var configDB = require('./config/database.js');
