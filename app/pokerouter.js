@@ -10,7 +10,8 @@ var Pokemon  = require('./models/pokemon');
 pokerouter.route('/pokemons')
 
 // create a pokemon
-pokerouter.post((function(req,res){
+    .post(function(req,res){
+    console.log("HOI");
     var pokemon = new Pokemon();      // create a new instance of the Bear model
     pokemon.name = req.body.name;  // set the bears name (comes from the request)
 
@@ -22,20 +23,24 @@ pokerouter.post((function(req,res){
     pokemon.save(function(err) {
         res.json({  message: 'Pokemon: '+req.body.name+' created! longitude: '+req.body.longitude});
                 });
-            }))
+            })
+
 
 
 //deletes pokemon
-pokerouter.delete('/:id',(function(req, res){
-        Pokemon.findById(req.params.id , function (err, pokemon){
+pokerouter.delete('/pokemons/:id', function(req, res){
+        Pokemon.findByIdAndRemove(req.params.id , function (err, pokemon){
             if (err)
-                res.send(err);
+                res.json(err);
 
-            res.json(pokemon);
-        }).remove().exec();
-}))
+        });
+    res.json();
+
+
+})
+
 //updates pokemon
-pokerouter.put('/:id',(function(req, res){
+pokerouter.put('/pokemons/:id',function(req, res){
     if(!req.body.name
         || !req.body.longitude
         || !req.body.latitude){
@@ -45,7 +50,7 @@ pokerouter.put('/:id',(function(req, res){
     else{
         Pokemon.findById(req.body.id, function(err, pokemon) {
             if (err)
-                res.send(err);
+                res.json(err);
 
             pokemon.name = req.body.name;
             pokemon.longitude = req.body.longitude;
@@ -53,15 +58,29 @@ pokerouter.put('/:id',(function(req, res){
 
             pokemon.save(function(err) {
                 if (err)
-                    res.send(err);
+                    res.json(err);
 
                 res.json({  message: 'Pokemon: '+req.body.name+' updated! longitude: '+req.body.longitude});
             });
         })
     }
-       
-}))
+    res.send("respond with a resource");
 
+
+})
+pokerouter.get('/pokemons/:id', function(req, res) {
+    let pokemon = new Pokemon();
+
+    Pokemon.findById(req.params.id, function (err, pokemon) {
+        if (err) {
+            res.json('Pokemon not found');
+        }
+        res.json(pokemon);
+
+    })
+    res.send("respond with a resource");
+
+})
 
 //export this router to use in our index.js
 module.exports = pokerouter;
