@@ -87,32 +87,39 @@ module.exports = function(app, passport) {
     });
 
     app.post('/admin/update/pokemon/:id',isLoggedIn, function(req, res){
+        var redirect = '/admin';
 
-        let pokemon = new Pokemon();
+        let validator = new PokemonValidator(req, res, redirect, () => {
 
-        if(!req.body.name
-            || !req.body.longitude
-            || !req.body.latitude){
-            res.status(400);
-            res.json({message: 'bad request'});
-        }
-        else{
-            Pokemon.findById(req.params.id, function(err, pokemon) {
-                if (err)
-                    res.json(err);
 
-                pokemon.name = req.body.name;
-                pokemon.longitude = req.body.longitude;
-                pokemon.latitude = req.body.latitude;
+            let pokemon = new Pokemon();
 
-                pokemon.save(function(err) {
+            if(!req.body.name
+                || !req.body.longitude
+                || !req.body.latitude){
+                res.status(400);
+                res.json({message: 'bad request'});
+            }
+            else{
+                Pokemon.findById(req.params.id, function(err, pokemon) {
                     if (err)
                         res.json(err);
 
-                    res.redirect('/admin');
-                });
-            })
-        }
+                    pokemon.name = req.body.name;
+                    pokemon.longitude = req.body.longitude;
+                    pokemon.latitude = req.body.latitude;
+
+                    pokemon.save(function(err) {
+                        if (err)
+                            res.json(err);
+
+                        res.redirect('/admin');
+                    });
+                })
+            }
+        });
+        validator.run();
+
 
 
     });
