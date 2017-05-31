@@ -1,5 +1,6 @@
 // app/routes.js
-var http = require('http');
+
+var request = require('request');
 
 module.exports = function(app, passport) {
 
@@ -33,7 +34,7 @@ module.exports = function(app, passport) {
             if (err)
                 res.send(err);
 
-            res.render('crud.hbs',{pokemons: pokemons, error: null});
+            res.render('crud.hbs',{pokemons: pokemons});
         })
 
 
@@ -44,6 +45,8 @@ module.exports = function(app, passport) {
 
     });
     app.get('/admin/update/:id',isLoggedIn, function(req, res){
+
+
         let pokemon = new Pokemon();
 
         Pokemon.findById(req.params.id, function (err, pokemon) {
@@ -58,37 +61,53 @@ module.exports = function(app, passport) {
 
 
     });
-    app.get('/admin/pokemon/delete/:id',isLoggedIn, function(req, res){
+    app.post('/admin/update/pokemon/:id',isLoggedIn, function(req, res){
 
-        http.get({
-                host: 'localhost',
-                 port:8080,
-                path: 'api/pokemons/'+req.params.id,
-                method: 'DELETE'
-            }, function(response) {
-                // Continuously update stream with data
-                var body = '';
-                response.on('data', function (d) {
-                    body += d;
-                });
-                response.on('end', function () {
-                    console.log(req.query.limit);
+        let pokemon = new Pokemon();
 
-                    // Data reception is done, do whatever with it!
+        if(!req.body.name
+            || !req.body.longitude
+            || !req.body.latitude){
+            res.status(400);
+            res.json({message: 'bad request'});
+        }
+        else{
+            Pokemon.findById(req.params.id, function(err, pokemon) {
+                if (err)
+                    res.json(err);
 
-                });
-            });
-        Pokemon.find(function (err, pokemons){
-            if (err)
-                res.send(err);
+                pokemon.name = req.body.name;
+                pokemon.longitude = req.body.longitude;
+                pokemon.latitude = req.body.latitude;
 
-            res.render('crud.hbs',{pokemons: pokemons, msg: "Pokemon Deleted"});
-        })
+                pokemon.save(function(err) {
+                    if (err)
+                        res.json(err);
+
+                    res.render('updatePokemon.hbs', {
+                        pokemon: pokemon
+                    });                });
+            })
+        }
 
 
     });
+    app.get('/admin/pokemon/delete/:id',isLoggedIn, function(req, res){
 
 
+                request.delete('http://localhost:8080/api/pokemons/'+req.params.id).on('response',function (response) {
+                    Pokemon.find(function (err, pokemons){
+                        if (err){
+                            res.render('crud.hbs',{pokemons: pokemons, msg: "Pokemon deleted"});
+
+
+
+                        }
+                         })});
+
+
+
+    });
 
     // process the login form
     // app.post('/login', do all our passport stuff here);
