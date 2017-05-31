@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd6c8923-0958-4c6d-b3ad-425eb1dc5bff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/createPokemon.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/crud.hbs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/updatePokemon.hbs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/pokemonApi.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pokerouter.js" afterPath="$PROJECT_DIR$/app/pokerouter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.js" afterPath="$PROJECT_DIR$/app/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/server.js" afterPath="$PROJECT_DIR$/app/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/crud.hbs" afterPath="$PROJECT_DIR$/app/views/crud.hbs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,19 +34,19 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding>
-                <marker date="1496162074448" expanded="false" signature="0:41" ph="/** Created by Glenn on 21-3-2017. ...*/" />
-                <marker date="1496162074448" expanded="true" signature="634:910" ph="{&quot;defaultLayout&quot;: 'main'...}" />
-                <marker date="1496162074448" expanded="true" signature="697:908" ph="{...}" />
-                <marker date="1496162074448" expanded="true" signature="743:901" ph="{...}" />
-                <marker date="1496162074448" expanded="true" signature="1163:1238" ph="//..." />
-                <marker date="1496162074448" expanded="true" signature="1240:1321" ph="//..." />
-                <marker date="1496162074448" expanded="true" signature="1963:2053" ph="//..." />
-                <marker date="1496162074448" expanded="true" signature="2116:2218" ph="//..." />
-                <marker date="1496162074448" expanded="true" signature="2434:2534" ph="//..." />
-              </folding>
+            <state relative-caret-position="205">
+              <caret line="76" column="26" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pokemonApi.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/pokemonApi.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-169">
+              <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,7 +54,7 @@
       <file leaf-file-name="crud.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/crud.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
+            <state relative-caret-position="1258">
               <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="30" />
               <folding />
             </state>
@@ -65,8 +64,8 @@
       <file leaf-file-name="crud.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/crud.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+            <state relative-caret-position="166">
+              <caret line="36" column="82" lean-forward="false" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -75,18 +74,18 @@
       <file leaf-file-name="createPokemon.hbs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/createPokemon.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-70">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="104" />
+            <state relative-caret-position="-318">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="104" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pokerouter.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pokerouter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pokerouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="63" column="7" lean-forward="false" selection-start-line="63" selection-start-column="7" selection-end-line="68" selection-end-column="10" />
+            <state relative-caret-position="436">
+              <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -102,26 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/auth.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="49" lean-forward="false" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-              <folding>
-                <marker date="1496161411834" expanded="true" signature="106:782" ph="{...}" />
-                <marker date="1496161411834" expanded="true" signature="130:352" ph="{&quot;clientID&quot;: '2261798904044459'...}" />
-                <marker date="1496161411834" expanded="true" signature="375:571" ph="{&quot;consumerKey&quot;: 'your-consumer-key-here'...}" />
-                <marker date="1496161411834" expanded="true" signature="593:779" ph="{&quot;clientID&quot;: 'your-secret-clientID-here'...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="46" column="62" lean-forward="false" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
+            <state relative-caret-position="459">
+              <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -150,9 +134,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>well</find>
-      <find>admin</find>
-      <find>crud</find>
       <find>admi</find>
+      <find>crud</find>
+      <find>admin</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,10 +151,12 @@
         <option value="$PROJECT_DIR$/app/models/location.js" />
         <option value="$PROJECT_DIR$/app/models/pokemon.js" />
         <option value="$PROJECT_DIR$/app/config/auth.js" />
-        <option value="$PROJECT_DIR$/app/server.js" />
         <option value="$PROJECT_DIR$/app/views/createPokemon.hbs" />
-        <option value="$PROJECT_DIR$/app/views/crud.hbs" />
         <option value="$PROJECT_DIR$/app/views/updatePokemon.hbs" />
+        <option value="$PROJECT_DIR$/app/server.js" />
+        <option value="$PROJECT_DIR$/app/pokemonApi.js" />
+        <option value="$PROJECT_DIR$/app/views/crud.hbs" />
+        <option value="$PROJECT_DIR$/app/pokerouter.js" />
         <option value="$PROJECT_DIR$/app/routes.js" />
       </list>
     </option>
@@ -211,7 +197,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,30 +213,13 @@
               <item name="PokemonRestApi" type="b2602c69:ProjectViewProjectNode" />
               <item name="PokemonRestApi" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PokemonRestApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PokemonRestApi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PokemonRestApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PokemonRestApi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="services" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PokemonRestApi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PokemonRestApi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -260,6 +228,8 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/flatbook-cms-master" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -346,12 +316,13 @@
       <workItem from="1490626733306" duration="298000" />
       <workItem from="1490643906950" duration="8785000" />
       <workItem from="1496157281227" duration="498000" />
-      <workItem from="1496157832248" duration="6430000" />
+      <workItem from="1496157832248" duration="7160000" />
+      <workItem from="1496224332445" duration="9901000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39686000" />
+    <option name="totallyTimeSpent" value="50317000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="793" y="0" width="814" height="867" extended-state="0" />
@@ -359,7 +330,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2907268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -388,19 +359,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/location.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/services/pokemonService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -408,7 +370,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -432,7 +393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -440,7 +400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -448,7 +407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -456,7 +414,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -464,17 +421,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1292">
           <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <marker date="1496162074448" expanded="false" signature="0:41" ph="/** Created by Glenn on 21-3-2017. ...*/" />
-            <marker date="1496162074448" expanded="true" signature="634:910" ph="{&quot;defaultLayout&quot;: 'main'...}" />
-            <marker date="1496162074448" expanded="true" signature="697:908" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="743:901" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="1163:1238" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1240:1321" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1963:2053" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2116:2218" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2434:2534" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -490,7 +437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -498,17 +444,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1496162074448" expanded="false" signature="0:41" ph="/** Created by Glenn on 21-3-2017. ...*/" />
-            <marker date="1496162074448" expanded="true" signature="634:910" ph="{&quot;defaultLayout&quot;: 'main'...}" />
-            <marker date="1496162074448" expanded="true" signature="697:908" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="743:901" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="1163:1238" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1240:1321" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1963:2053" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2116:2218" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2434:2534" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -516,7 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -524,7 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -532,7 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -548,7 +481,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -556,17 +488,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1496162074448" expanded="false" signature="0:41" ph="/** Created by Glenn on 21-3-2017. ...*/" />
-            <marker date="1496162074448" expanded="true" signature="634:910" ph="{&quot;defaultLayout&quot;: 'main'...}" />
-            <marker date="1496162074448" expanded="true" signature="697:908" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="743:901" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="1163:1238" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1240:1321" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1963:2053" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2116:2218" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2434:2534" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -574,7 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -582,7 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -590,7 +510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -606,7 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -614,17 +532,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1496162074448" expanded="false" signature="0:41" ph="/** Created by Glenn on 21-3-2017. ...*/" />
-            <marker date="1496162074448" expanded="true" signature="634:910" ph="{&quot;defaultLayout&quot;: 'main'...}" />
-            <marker date="1496162074448" expanded="true" signature="697:908" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="743:901" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="1163:1238" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1240:1321" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1963:2053" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2116:2218" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2434:2534" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -632,7 +540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -640,7 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -648,7 +554,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,17 +576,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
           <caret line="110" column="32" lean-forward="false" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
-          <folding>
-            <marker date="1496162074448" expanded="false" signature="0:41" ph="/** Created by Glenn on 21-3-2017. ...*/" />
-            <marker date="1496162074448" expanded="true" signature="634:910" ph="{&quot;defaultLayout&quot;: 'main'...}" />
-            <marker date="1496162074448" expanded="true" signature="697:908" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="743:901" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="1163:1238" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1240:1321" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1963:2053" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2116:2218" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2434:2534" ph="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -690,7 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -698,7 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +598,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +605,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="12" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -722,7 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -737,7 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -753,7 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -761,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,12 +654,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="49" lean-forward="false" selection-start-line="8" selection-start-column="49" selection-end-line="8" selection-end-column="49" />
-          <folding>
-            <marker date="1496161411834" expanded="true" signature="106:782" ph="{...}" />
-            <marker date="1496161411834" expanded="true" signature="130:352" ph="{&quot;clientID&quot;: '2261798904044459'...}" />
-            <marker date="1496161411834" expanded="true" signature="375:571" ph="{&quot;consumerKey&quot;: 'your-consumer-key-here'...}" />
-            <marker date="1496161411834" expanded="true" signature="593:779" ph="{&quot;clientID&quot;: 'your-secret-clientID-here'...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -788,34 +668,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/crud.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
+        <state relative-caret-position="1258">
           <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/server.js">
+    <entry file="file://$PROJECT_DIR$/app/views/createPokemon.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <marker date="1496162074448" expanded="false" signature="0:41" ph="/** Created by Glenn on 21-3-2017. ...*/" />
-            <marker date="1496162074448" expanded="true" signature="634:910" ph="{&quot;defaultLayout&quot;: 'main'...}" />
-            <marker date="1496162074448" expanded="true" signature="697:908" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="743:901" ph="{...}" />
-            <marker date="1496162074448" expanded="true" signature="1163:1238" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1240:1321" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="1963:2053" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2116:2218" ph="//..." />
-            <marker date="1496162074448" expanded="true" signature="2434:2534" ph="//..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/crud.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+        <state relative-caret-position="-318">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="104" />
           <folding />
         </state>
       </provider>
@@ -828,22 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="46" column="62" lean-forward="false" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/createPokemon.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-70">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/pokemon.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
@@ -852,10 +698,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="76" column="26" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/crud.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="36" column="82" lean-forward="false" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/pokemonApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="4" column="43" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/pokerouter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="63" column="7" lean-forward="false" selection-start-line="63" selection-start-column="7" selection-end-line="68" selection-end-column="10" />
+        <state relative-caret-position="436">
+          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="62" column="12" lean-forward="false" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
           <folding />
         </state>
       </provider>

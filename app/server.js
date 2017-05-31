@@ -37,6 +37,8 @@ const hbs = exphbs.create({
 var mongoose   = require('mongoose');
 var configDB = require('./config/database.js');
 var pokerouter = require('./pokerouter.js');
+var pokemonApi = require('./pokemonApi.js');
+
 
 mongoose.connect(configDB.url); // connect to our database
 
@@ -73,6 +75,8 @@ var port = process.env.PORT || 8080;        // set our port
 require('./routes.js')(app, passport);
 //app.use('/mon', router);
 app.use('/api', pokerouter);
+app.use('/api', pokemonApi);
+
 
 // voor als de router werkt? require('./routes.js')(app, passport); // load our routes and pass in our app and fully
 

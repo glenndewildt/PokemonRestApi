@@ -6,183 +6,61 @@ var Pokemon  = require('./models/pokemon');
 var https = require('https');
 
 //model pokemon
-
+var Pokemon  = require('./models/pokemon');
 pokerouter.route('/pokemons')
 
-    // create a pokemon
-    .post(function(req, res) {
-        //|| !req.headers.longitude.toString().match(/^[0-9]{4}$/g) nog de juiste regex vinden voor lon/lat
-        if(!req.headers.name 
-            || !req.headers.longitude 
-            || !req.headers.latitude){
-            res.status(400);
-            res.json({message: 'bad request'});
-        }
-        else{
-        var pokemon = new Pokemon();      // create a new instance of the Bear model
-        pokemon.name = req.headers.name;  // set the bears name (comes from the request)
+// create a pokemon
+pokerouter.post((function(req,res){
+    var pokemon = new Pokemon();      // create a new instance of the Bear model
+    pokemon.name = req.body.name;  // set the bears name (comes from the request)
 
-        pokemon.longitude = req.headers.longitude;
-        pokemon.latitude = req.headers.latitude;
+    pokemon.longitude = req.body.longitude;
+    pokemon.latitude = req.body.latitude;
 
 
-        // save the bear and check for errors
-        pokemon.save(function(err) {
-            if (err)
-                res.send(err);
+    // save the bear and check for errors
+    pokemon.save(function(err) {
+        res.json({  message: 'Pokemon: '+req.body.name+' created! longitude: '+req.body.longitude});
+                });
+            }))
 
-            res.json({  message: 'Pokemon: '+req.headers.name+' created! longitude: '+req.headers.longitude});
-        });
-        }
 
-    
-
-})
-    //gets all pokemons from the PokemonApi
-.get(function(req, res) {
-    return https.get({
-        host: 'pokeapi.co',
-        path: '/api/v2/pokemon/?limit='+req.query.limit+"&offset="+req.query.offset+'',
-        method: 'GET'
-    }, function(response) {
-        // Continuously update stream with data
-        var body = '';
-        response.on('data', function (d) {
-            body += d;
-        });
-        response.on('end', function () {
-       console.log(req.query.limit);
-
-            // Data reception is done, do whatever with it!
-            var parsed = JSON.parse(body);
-            res.json(parsed);
-        });
-    });
-});
-
-pokerouter.get('/pokemonLocations',(function(req, res){
-        Pokemon.find(function (err, pokemons){
-            if (err)
-                res.send(err);
-
-            res.json(pokemons);
-        })
-}))
-pokerouter.get('/pokemonLocations/:id',(function(req, res){
+//deletes pokemon
+pokerouter.delete('/:id',(function(req, res){
         Pokemon.findById(req.params.id , function (err, pokemon){
             if (err)
                 res.send(err);
 
             res.json(pokemon);
-        })
+        }).remove().exec();
 }))
-pokerouter.put('/pokemonLocations/:id',(function(req, res){
-    if(!req.headers.name 
-            || !req.headers.longitude 
-            || !req.headers.latitude){
-            res.status(400);
-            res.json({message: 'bad request'});
-        }
-        else{
-            Pokemon.findById(req.params.id, function(err, pokemon) {
-        if (err)
-            res.send(err);
-
-            pokemon.name = req.headers.name;
-            pokemon.longitude = req.headers.longitude;
-            pokemon.latitude = req.headers.latitude;
-
-            pokemon.save(function(err) {
+//updates pokemon
+pokerouter.put('/:id',(function(req, res){
+    if(!req.body.name
+        || !req.body.longitude
+        || !req.body.latitude){
+        res.status(400);
+        res.json({message: 'bad request'});
+    }
+    else{
+        Pokemon.findById(req.body.id, function(err, pokemon) {
             if (err)
                 res.send(err);
-
-            res.json({  message: 'Pokemon: '+req.headers.name+' updated! longitude: '+req.headers.longitude});
-        });
-        })       
-        }
-       
-}))
-pokerouter.delete('/pokemonLocations/:id',(function(req, res){
-    
-            Pokemon.findById(req.params.id, function(err, pokemon) {
-        if (err)
-            res.send(err);
-
-           if(pokemon){
-            pokemon.remove({
-            _id: req.params.id
-            })
-            res.json({message:'pokemon deleted'});
-        }else{
-            res.json({message:'no pokemon with id: '+req.params.id})
-        }
-                      
-        })       
-               
-}))
-pokerouter.post('/pokemons/crudAdd',(function(req,res){
-    console.log('stap1');
-    var pokemon = new Pokemon();      // create a new instance of the Bear model
-        pokemon.name = req.body.name;  // set the bears name (comes from the request)
-
-        pokemon.longitude = req.body.longitude;
-        pokemon.latitude = req.body.latitude;
-
-
-        // save the bear and check for errors
-        pokemon.save(function(err) {
-            if (err)
-                res.send(err);
-
-            res.json({  message: 'Pokemon: '+req.body.name+' created! longitude: '+req.body.longitude});
-        });
-}))
-pokerouter.post('/pokemons/crudUpdate',(function(req,res){
-     if(!req.body.name 
-            || !req.body.longitude 
-            || !req.body.latitude){
-            res.status(400);
-            res.json({message: 'bad request'});
-        }
-        else{
-            Pokemon.findById(req.body.id, function(err, pokemon) {
-        if (err)
-            res.send(err);
 
             pokemon.name = req.body.name;
             pokemon.longitude = req.body.longitude;
             pokemon.latitude = req.body.latitude;
 
             pokemon.save(function(err) {
-            if (err)
-                res.send(err);
+                if (err)
+                    res.send(err);
 
-            res.json({  message: 'Pokemon: '+req.body.name+' updated! longitude: '+req.body.longitude});
-        });
-        })       
-        }
+                res.json({  message: 'Pokemon: '+req.body.name+' updated! longitude: '+req.body.longitude});
+            });
+        })
+    }
+       
 }))
-pokerouter.post('/pokemons/crudDelete',(function(req,res){
-          Pokemon.findById(req.body.id, function(err, pokemon) {
-        if (err)
-            res.send(err);
-
-           if(pokemon){
-            pokemon.remove({
-            _id: req.params.id
-            })
-            res.json({message:'pokemon deleted'});
-        }else{
-            res.json({message:'no pokemon with id: '+req.body.id})
-        }
-                      
-        })   
-}))
-
-
-
-
-
 
 
 //export this router to use in our index.js

@@ -1,4 +1,6 @@
 // app/routes.js
+var http = require('http');
+
 module.exports = function(app, passport) {
 
     var Pokemon  = require('./models/pokemon');
@@ -31,7 +33,7 @@ module.exports = function(app, passport) {
             if (err)
                 res.send(err);
 
-            res.render('crud.hbs',{pokemons: pokemons});
+            res.render('crud.hbs',{pokemons: pokemons, error: null});
         })
 
 
@@ -42,7 +44,7 @@ module.exports = function(app, passport) {
 
     });
     app.get('/admin/update/:id',isLoggedIn, function(req, res){
-            let pokemon = new Pokemon();
+        let pokemon = new Pokemon();
 
         Pokemon.findById(req.params.id, function (err, pokemon) {
             if (err) {
@@ -56,6 +58,37 @@ module.exports = function(app, passport) {
 
 
     });
+    app.get('/admin/pokemon/delete/:id',isLoggedIn, function(req, res){
+
+        http.get({
+                host: 'localhost',
+                 port:8080,
+                path: 'api/pokemons/'+req.params.id,
+                method: 'DELETE'
+            }, function(response) {
+                // Continuously update stream with data
+                var body = '';
+                response.on('data', function (d) {
+                    body += d;
+                });
+                response.on('end', function () {
+                    console.log(req.query.limit);
+
+                    // Data reception is done, do whatever with it!
+
+                });
+            });
+        Pokemon.find(function (err, pokemons){
+            if (err)
+                res.send(err);
+
+            res.render('crud.hbs',{pokemons: pokemons, msg: "Pokemon Deleted"});
+        })
+
+
+    });
+
+
 
     // process the login form
     // app.post('/login', do all our passport stuff here);
