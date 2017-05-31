@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd6c8923-0958-4c6d-b3ad-425eb1dc5bff" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pokerouter.js" afterPath="$PROJECT_DIR$/app/pokerouter.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.js" afterPath="$PROJECT_DIR$/app/routes.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,8 +60,8 @@
       <file leaf-file-name="pokerouter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/pokerouter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="24" selection-end-column="19" />
+            <state relative-caret-position="423">
+              <caret line="65" column="15" lean-forward="true" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -79,8 +80,8 @@
       <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+            <state relative-caret-position="375">
+              <caret line="79" column="12" lean-forward="false" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -132,6 +133,7 @@
       <find>admi</find>
       <find>crud</find>
       <find>admin</find>
+      <find>loca</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -148,12 +150,12 @@
         <option value="$PROJECT_DIR$/app/config/auth.js" />
         <option value="$PROJECT_DIR$/app/pokemonApi.js" />
         <option value="$PROJECT_DIR$/app/views/crud.hbs" />
-        <option value="$PROJECT_DIR$/app/pokerouter.js" />
         <option value="$PROJECT_DIR$/app/views/updatePokemon.hbs" />
         <option value="$PROJECT_DIR$/app/views/createPokemon.hbs" />
         <option value="$PROJECT_DIR$/app/server.js" />
         <option value="$PROJECT_DIR$/app/run_validation.js" />
         <option value="$PROJECT_DIR$/app/pokemon_validator.js" />
+        <option value="$PROJECT_DIR$/app/pokerouter.js" />
         <option value="$PROJECT_DIR$/app/routes.js" />
       </list>
     </option>
@@ -320,12 +322,12 @@
       <workItem from="1490643906950" duration="8785000" />
       <workItem from="1496157281227" duration="498000" />
       <workItem from="1496157832248" duration="7160000" />
-      <workItem from="1496224332445" duration="22929000" />
+      <workItem from="1496224332445" duration="25592000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63345000" />
+    <option name="totallyTimeSpent" value="66008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="793" y="0" width="814" height="867" extended-state="0" />
@@ -693,14 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pokerouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="24" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/createPokemon.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -741,10 +735,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/pokerouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="65" column="15" lean-forward="true" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="89" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+        <state relative-caret-position="375">
+          <caret line="79" column="12" lean-forward="false" selection-start-line="79" selection-start-column="12" selection-end-line="79" selection-end-column="12" />
           <folding />
         </state>
       </provider>

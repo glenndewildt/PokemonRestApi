@@ -77,9 +77,8 @@ module.exports = function(app, passport) {
             // save the bear and check for errors
             pokemon.save(function (err) {
             });
-            res.render('crud.hbs', {
-                pokemon: pokemon
-            });
+            res.redirect('/admin');
+
         });
             validator.run();
 
@@ -117,6 +116,8 @@ module.exports = function(app, passport) {
                     });
                 })
             }
+
+
         });
         validator.run();
 
@@ -130,12 +131,13 @@ module.exports = function(app, passport) {
                     Pokemon.find(function (err, pokemons){
                         if (err){
                         }
-                        res.redirect('/admin?msg='+'pokemon deleted');
 
-                    })});
+                    })
+                        res.redirect('/admin');
 
+                    }
 
-
+        );
 
     });
 

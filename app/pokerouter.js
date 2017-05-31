@@ -53,12 +53,14 @@ pokerouter.put('/pokemons/:id',function(req, res){
                 res.json(err);
 
             pokemon.name = req.body.name;
-            pokemon.longitude = req.body.longitude;
+            pokemon.longitude = req.header().longitude;
             pokemon.latitude = req.body.latitude;
 
             pokemon.save(function(err) {
                 if (err)
                     res.json(err);
+
+                console.log("Save");
 
                 res.json({  message: 'Pokemon: '+req.body.name+' updated! longitude: '+req.body.longitude});
             });
