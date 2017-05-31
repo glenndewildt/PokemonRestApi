@@ -9,6 +9,8 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var cors = require('cors');
 const exphbs = require('express-handlebars');
+const validator = require('express-validator');
+const flashh = require('express-flash');
 
 
 
@@ -21,6 +23,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+app.use(validator({}));
+
 const hbs = exphbs.create({
     defaultLayout: 'main',
     extname: '.hbs',
@@ -32,6 +36,7 @@ const hbs = exphbs.create({
         },
     }
 });
+app.use(flashh());
 
 //mongoose setup
 var mongoose   = require('mongoose');

@@ -1,4 +1,5 @@
 // app/routes.js
+const PokemonValidator = require('./pokemon_validator');
 
 var request = require('request');
 
@@ -43,6 +44,7 @@ module.exports = function(app, passport) {
 
             res.render('createPokemon.hbs');
 
+
     });
     app.get('/admin/update/:id',isLoggedIn, function(req, res){
 
@@ -50,17 +52,40 @@ module.exports = function(app, passport) {
         let pokemon = new Pokemon();
 
         Pokemon.findById(req.params.id, function (err, pokemon) {
-            if (err) {
+            if (err)
                 res.render('404');
-            }
 
-            res.render('updatePokemon.hbs', {
-                pokemon: pokemon
-            });
+                res.render('updatePokemon.hbs',{pokemon: pokemon});
+
         })
 
 
     });
+
+    app.post('/admin/create/pokemon',isLoggedIn, function(req, res){
+        var redirect = '/admin/create';
+
+        let validator = new PokemonValidator(req, res, redirect, () => {
+
+            var pokemon = new Pokemon();      // create a new instance of the Bear model
+            pokemon.name = req.body.name;  // set the bears name (comes from the request)
+
+            pokemon.longitude = req.body.longitude;
+            pokemon.latitude = req.body.latitude;
+
+
+            // save the bear and check for errors
+            pokemon.save(function (err) {
+            });
+            res.render('crud.hbs', {
+                pokemon: pokemon
+            });
+        });
+            validator.run();
+
+
+    });
+
     app.post('/admin/update/pokemon/:id',isLoggedIn, function(req, res){
 
         let pokemon = new Pokemon();
@@ -84,9 +109,8 @@ module.exports = function(app, passport) {
                     if (err)
                         res.json(err);
 
-                    res.render('updatePokemon.hbs', {
-                        pokemon: pokemon
-                    });                });
+                    res.redirect('/admin');
+                });
             })
         }
 
@@ -98,12 +122,11 @@ module.exports = function(app, passport) {
                 request.delete('http://localhost:8080/api/pokemons/'+req.params.id).on('response',function (response) {
                     Pokemon.find(function (err, pokemons){
                         if (err){
-                            res.render('crud.hbs',{pokemons: pokemons, msg: "Pokemon deleted"});
-
-
-
                         }
-                         })});
+                        res.redirect('/admin?msg='+'pokemon deleted');
+
+                    })});
+
 
 
 
