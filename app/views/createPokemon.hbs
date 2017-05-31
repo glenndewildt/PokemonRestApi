@@ -5,16 +5,17 @@
     <div class="row">
         <div class="col-xs-12">
 
-            {{#if errors}}
-                <div class="alert alert-danger alert-dismissable">
-                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                    <ul>
-                        {{#each errors}}
-                            <li>{{this.msg}}</li>
-                        {{/each}}
-                    </ul>
-                </div>
-            {{/if}}
+            <div class="col-xs-12 col-md-8 col-md-offset-2">
+                {{#if errors}}
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <ul>
+                            {{#each errors}}
+                                <li>{{this.msg}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{/if}}
 
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -23,7 +24,7 @@
 
                 <div class="panel-body">
 
-                    <form method="POST" action="/api/pokemons/">
+                    <form method="POST" action="/admin/create/pokemon">
                         <label for="email">Name</label>
                         <input class="form-control" placeholder="name" type="text" name="name"><br>
                         <label for="longitude">longitude</label>
