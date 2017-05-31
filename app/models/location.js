@@ -9,8 +9,11 @@ var Schema       = mongoose.Schema;
 
 
 var LocationSchema   = new Schema({
-    longitude: double,
-    latitude: double,
+
+   location: {
+    longitude: { type: Number},  
+    latitude:  { type: Number}
+  }
 });
 
 

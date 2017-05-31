@@ -1,0 +1,41 @@
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+            {{#if errors}}
+                <div class="alert alert-danger alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <ul>
+                        {{#each errors}}
+                            <li>{{this.msg}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            {{/if}}
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Add pokemon</h3>
+                </div>
+
+                <div class="panel-body">
+
+                    <form method="POST" action="/users/create">
+                        <label for="email">Name</label>
+                        <input class="form-control" placeholder="name" type="text" name="name"><br>
+                        <label for="longitude">longitude</label>
+                        <input class="form-control" type="text" name="longitude" placeholder="longitude"><br>
+                                                <label for="latitude">longitude</label>
+                                                <input class="form-control" type="text" name="latitude" placeholder="latitude"><br>
+
+                        <button class="btn btn-success" type="submit">Create</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

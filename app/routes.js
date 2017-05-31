@@ -1,5 +1,16 @@
 // app/routes.js
+var http = require('http');
+
 module.exports = function(app, passport) {
+
+    var Pokemon  = require('./models/pokemon');
+    var pokemonList = '';
+    Pokemon.find(function (err, pokemons){
+            if (err)
+                
+
+            pokemonList = pokemons;
+        })
 
     // =====================================
     // HOME PAGE (with login links) ========
@@ -17,6 +28,67 @@ module.exports = function(app, passport) {
         // render the page and pass in any flash data if it exists
         res.render('login.ejs', { message: req.flash('loginMessage') }); 
     });
+    app.get('/admin',isLoggedIn, function(req, res){
+        Pokemon.find(function (err, pokemons){
+            if (err)
+                res.send(err);
+
+            res.render('crud.hbs',{pokemons: pokemons, error: null});
+        })
+
+
+    });
+    app.get('/admin/create',isLoggedIn, function(req, res){
+
+            res.render('createPokemon.hbs');
+
+    });
+    app.get('/admin/update/:id',isLoggedIn, function(req, res){
+        let pokemon = new Pokemon();
+
+        Pokemon.findById(req.params.id, function (err, pokemon) {
+            if (err) {
+                res.render('404');
+            }
+
+            res.render('updatePokemon.hbs', {
+                pokemon: pokemon
+            });
+        })
+
+
+    });
+    app.get('/admin/pokemon/delete/:id',isLoggedIn, function(req, res){
+
+        http.get({
+                host: 'localhost',
+                 port:8080,
+                path: 'api/pokemons/'+req.params.id,
+                method: 'DELETE'
+            }, function(response) {
+                // Continuously update stream with data
+                var body = '';
+                response.on('data', function (d) {
+                    body += d;
+                });
+                response.on('end', function () {
+                    console.log(req.query.limit);
+
+                    // Data reception is done, do whatever with it!
+
+                });
+            });
+        Pokemon.find(function (err, pokemons){
+            if (err)
+                res.send(err);
+
+            res.render('crud.hbs',{pokemons: pokemons, msg: "Pokemon Deleted"});
+        })
+
+
+    });
+
+
 
     // process the login form
     // app.post('/login', do all our passport stuff here);
@@ -40,8 +112,10 @@ module.exports = function(app, passport) {
     // we will want this protected so you have to be logged in to visit
     // we will use route middleware to verify this (the isLoggedIn function)
     app.get('/profile', isLoggedIn, function(req, res) {
+
         res.render('profile.ejs', {
-            user : req.user // get the user out of session and pass to template
+            user : req.user, // get the user out of session and pass to template
+            
         });
     });
 
