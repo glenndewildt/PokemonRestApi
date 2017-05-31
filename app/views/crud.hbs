@@ -1,0 +1,47 @@
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            {{#if msg}}
+                <div class="alert alert-success alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    {{msg}}
+                </div>
+            {{/if}}
+
+
+            <h3>Pokemons</h3>
+
+
+            <a class="btn btn-success" href="admin/create">Create new user</a>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>name</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each pokemons}}
+                    <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.location}}</td>
+
+                        <td>
+
+                            <a class="btn btn-primary" href="/admin/update/{{this._id}}">
+                                <span class="glyphicon glyphicon-list"></span>
+                            </a>
+                            <a class="btn btn-danger" href="/users/delete/{{this._id}}">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

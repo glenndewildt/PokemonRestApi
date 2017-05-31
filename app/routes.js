@@ -27,7 +27,34 @@ module.exports = function(app, passport) {
         res.render('login.ejs', { message: req.flash('loginMessage') }); 
     });
     app.get('/admin',isLoggedIn, function(req, res){
-        res.render('crud.ejs', pokemonList);
+        Pokemon.find(function (err, pokemons){
+            if (err)
+                res.send(err);
+
+            res.render('crud.hbs',{pokemons: pokemons});
+        })
+
+
+    });
+    app.get('/admin/create',isLoggedIn, function(req, res){
+
+            res.render('createPokemon.hbs');
+
+    });
+    app.get('/admin/update/:id',isLoggedIn, function(req, res){
+            let pokemon = new Pokemon();
+
+        Pokemon.findById(req.params.id, function (err, pokemon) {
+            if (err) {
+                res.render('404');
+            }
+
+            res.render('updatePokemon.hbs', {
+                pokemon: pokemon
+            });
+        })
+
+
     });
 
     // process the login form

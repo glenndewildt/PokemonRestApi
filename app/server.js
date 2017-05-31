@@ -59,6 +59,7 @@ app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secre
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
+app.set('view engine', 'hbs');
 
 //app.get('*', function(req, res){
 //    res.send('Sorry, this is an invalid URL.');
