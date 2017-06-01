@@ -7,6 +7,53 @@ var https = require('https');
 
 //model pokemon
 var Pokemon  = require('./models/pokemon');
+
+/**
+ * @swagger
+ * definition:
+ *   Pokemon:
+ *     type: object
+ *     required:
+ *       -latitude
+ *       -longitude
+ *     properties:
+ *       name:
+ *         type: string
+ *         example: Venusaur
+ *       type:
+ *         type: string
+ *         example: Grass
+ *       longitude:
+ *         type: integer
+ *         example: '71.49'
+ *       latitude:
+ *         type: string
+ *         example: '34.16'
+ */
+
+/**
+ * @swagger
+ * '/pokemons/{pokemonid}':
+ *   post:
+ *     tags:
+ *       - Pokemon
+ *     summary: Add a new pokemon 
+ *     description: Adds a single pokemon
+ *     produces:
+ *       - "application/json"
+ *     parameters:
+ *       - in: "body"
+ *         name: "body"
+ *         description: "pokemon to be added"
+ *         required: true
+ *         schema:
+ *           $ref: '#/definitions/Pokemon'
+ *     responses:
+ *       '200':
+ *         description: "successful operation"
+ *       '400':
+ *           description: "Invalid ID supplied"
+ */
 pokerouter.route('/pokemons')
 
 // create a pokemon
@@ -27,7 +74,29 @@ pokerouter.route('/pokemons')
 
 
 
-//deletes pokemon
+/**
+ * @swagger
+ * '/pokemons/{pokemonid}':
+ *   delete:
+ *     tags:
+ *       - Pokemon
+ *     summary: Delete by ID
+ *     description: Deletes a single pokemon
+ *     produces:
+ *       - "application/json"
+ *     parameters:
+ *       - name: "pokemonID"
+ *         in: "path"
+ *         description: "ID of pokemon to delete"
+ *         required: true
+ *         type: "integer"
+ *         format: "int64"
+ *     responses:
+ *       '200':
+ *         description: "succesfully deleted"
+ *       '400':
+ *           description: "Invalid ID supplied"
+ */
 pokerouter.delete('/pokemons/:id', function(req, res){
         Pokemon.findByIdAndRemove(req.params.id , function (err, pokemon){
             if (err)
@@ -39,7 +108,31 @@ pokerouter.delete('/pokemons/:id', function(req, res){
 
 })
 
-//updates pokemon
+/**
+ * @swagger
+ * '/pokemons/{pokemonid}':
+ *   put:
+ *     tags:
+ *       - Pokemon
+ *     summary: Update pokemon by ID
+ *     description: Updates a single pokemon
+ *     produces:
+ *       - "application/json"
+ *     parameters:
+ *       - name: "pokemonID"
+ *         in: "path"
+ *         description: "ID of pokemon to update"
+ *         required: true
+ *         type: "integer"
+ *         format: "int64"
+ *     responses:
+ *       '200':
+ *         description: "successful operation"
+ *         schema:
+ *           $ref: '#/definitions/Pokemon'
+ *       '400':
+ *           description: "Invalid ID supplied"
+ */
 pokerouter.put('/pokemons/:id',function(req, res){
     if(!req.body.name
         || !req.body.longitude
@@ -70,6 +163,32 @@ pokerouter.put('/pokemons/:id',function(req, res){
 
 
 })
+
+/**
+ * @swagger
+ * '/pokemons/{pokemonid}':
+ *   get:
+ *     tags:
+ *       - Pokemon
+ *     summary: Find pokemon by ID
+ *     description: Returns a single pokemon
+ *     produces:
+ *       - "application/json"
+ *     parameters:
+ *       - name: "pokemonID"
+ *         in: "path"
+ *         description: "ID of pokemon to return"
+ *         required: true
+ *         type: "integer"
+ *         format: "int64"
+ *     responses:
+ *       '200':
+ *         description: "successful operation"
+ *         schema:
+ *           $ref: '#/definitions/Pokemon'
+ *       '400':
+ *           description: "Invalid ID supplied"
+ */
 pokerouter.get('/pokemons/:id', function(req, res) {
     let pokemon = new Pokemon();
 

@@ -7,6 +7,25 @@ var https = require('https');
 
 //model pokemon
 
+/**
+ * @swagger
+ * '/pokemonApi/{pokemonid}':
+ *   get:
+ *     tags:
+ *       - ApiPokemon
+ *     summary: Collect all Api pokemon
+ *     description: Returns all Api pokemon
+ *     produces:
+ *       - "application/json"
+ *     parameters:
+ *       - in: "body"
+ *         name: "body"
+ *         type: "array"
+ *     responses:
+ *       '200':
+ *         description: "successful operation"
+ *         returnType: "pokemon array"
+ */
 pokemonApi.route('/pokemonApi')
 
 
