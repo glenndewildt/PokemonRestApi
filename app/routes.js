@@ -126,8 +126,8 @@ module.exports = function(app, passport) {
     });
     app.get('/admin/pokemon/delete/:id',isLoggedIn, function(req, res){
 
-
-                request.delete('http://localhost:8080/api/pokemons/'+req.params.id).on('response',function (response) {
+                //request.delete('http://localhost:8080/api/pokemons/'+req.params.id).on('response',function (response) {
+                request.delete('https://cryptic-lowlands-27872.herokuapp.com/api/pokemons/'+req.params.id).on('response',function (response) {
                     Pokemon.find(function (err, pokemons){
                         if (err){
                         }

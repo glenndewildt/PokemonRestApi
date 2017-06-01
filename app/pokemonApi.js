@@ -24,7 +24,6 @@ var https = require('https');
  *     responses:
  *       '200':
  *         description: "successful operation"
- *         returnType: "pokemon array"
  */
 pokemonApi.route('/pokemonApi')
 

@@ -8,11 +8,12 @@ var https = require('https');
 //model pokemon
 var Pokemon  = require('./models/pokemon');
 
+
+
 /**
  * @swagger
  * definition:
  *   Pokemon:
- *     type: object
  *     required:
  *       -latitude
  *       -longitude
@@ -33,7 +34,7 @@ var Pokemon  = require('./models/pokemon');
 
 /**
  * @swagger
- * '/pokemons/{pokemonid}':
+ * /pokemons:
  *   post:
  *     tags:
  *       - Pokemon
@@ -43,8 +44,8 @@ var Pokemon  = require('./models/pokemon');
  *       - "application/json"
  *     parameters:
  *       - in: "body"
- *         name: "body"
- *         description: "pokemon to be added"
+ *         name: "name"
+ *         description: "name pokemon to be added"
  *         required: true
  *         schema:
  *           $ref: '#/definitions/Pokemon'
@@ -154,7 +155,7 @@ pokerouter.put('/pokemons/:id',function(req, res){
                     res.json(err);
 
                 console.log("Save");
-
+                res.status(200);
                 res.json({  message: 'Pokemon: '+req.body.name+' updated! longitude: '+req.body.longitude});
             });
         })
@@ -196,10 +197,44 @@ pokerouter.get('/pokemons/:id', function(req, res) {
         if (err) {
             res.json('Pokemon not found');
         }
+        res.status(200);
         res.json(pokemon);
 
     })
-    res.send("respond with a resource");
+
+})
+/**
+ * @swagger
+ * /pokemons:
+ *   get:
+ *     tags:
+ *       - Pokemon
+ *     summary: Find pokemons
+ *     description: Returns all pokemon
+ *     produces:
+ *       - "application/json"
+ *     parameters:
+ *     responses:
+ *       '200':
+ *         description: "successful operation"
+ *         schema:
+ *           $ref: '#/definitions/Pokemon'
+ *       '400':
+ *           description: "Invalid ID supplied"
+ */
+pokerouter.get('/pokemons', function(req, res) {
+
+
+    Pokemon.find(function (err, pokemon) {
+        if (err) {
+            res.status(400);
+            res.json('Pokemon not found');
+        }
+        res.status(200);
+        res.json(pokemon);
+
+    })
+    
 
 })
 

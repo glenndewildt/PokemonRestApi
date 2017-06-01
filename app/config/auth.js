@@ -6,8 +6,9 @@ module.exports = {
     'facebookAuth' : {
         'clientID'      : '2261798904044459', // your App ID
         'clientSecret'  : '78b1f48610928fce380718903ce51aa9', // your App Secret
-        'callbackURL'   : 'http://localhost:8080/auth/facebook/callback'
+        'callbackURL'   : 'https://cryptic-lowlands-27872.herokuapp.com/auth/facebook/callback'
     },
+    // 'callbackURL'   : 'http://localhost:8080/auth/facebook/callback'
 
     'twitterAuth' : {
         'consumerKey'       : 'your-consumer-key-here',
